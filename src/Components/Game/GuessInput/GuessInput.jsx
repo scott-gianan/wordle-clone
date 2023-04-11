@@ -31,6 +31,33 @@ function GuessInput() {
   }, [guess]);
   //end of effect for keyboard event listener
 
+  //start of effect for click event listener
+  useEffect(() => {
+    const handleClick = (event) => {
+      const clickedTile = event.target;
+      const allowedTile =
+        clickedTile.className === "letter-key" ||
+        clickedTile.className === "submit-key";
+      if (allowedTile) {
+        if (guess.length === 5) {
+          if (clickedTile.textContent === "⬅") {
+            setGuess((prevGuess) => prevGuess.slice(0, prevGuess.length - 1));
+          }
+          return;
+        } else if (clickedTile.textContent === "⬅") {
+          setGuess((prevGuess) => prevGuess.slice(0, prevGuess.length - 1));
+        } else {
+          setGuess((prevGuess) => prevGuess + clickedTile.textContent);
+        }
+      }
+    };
+    window.addEventListener("click", handleClick);
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [guess]);
+  //end of effect for click event listener
+
   return (
     <>
       <h1>{guess}</h1>

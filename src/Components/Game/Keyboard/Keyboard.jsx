@@ -14,7 +14,7 @@ function KeyBoard() {
                 key={keyId + key}
                 className={`${key.length > 1 ? "submit-key" : "letter-key"}`}
               >
-                <h3>{key}</h3>
+                {key}
               </div>
             );
           })}
