@@ -1,0 +1,16 @@
+.cell {
+  position: relative;
+  width: 3rem;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-gray-700);
+  border-radius: var(--radius);
+  font-size: 1.5rem;
+}
+
+.guess {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
