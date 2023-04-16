@@ -1,7 +1,7 @@
 import KeysArray from "../../../assets/Keyboard";
 import { useId } from "react";
 import "./Keyboard.css";
-function KeyBoard() {
+function KeyBoard(guesses, answer) {
   const keyId = useId();
 
   function RenderKeys() {

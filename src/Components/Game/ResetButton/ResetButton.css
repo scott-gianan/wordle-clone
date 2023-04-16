@@ -1,0 +1,17 @@
+button {
+  background: #93c47d;
+  border: 1px solid #76a5af;
+  border-radius: 5px;
+  padding: 15px 15px;
+  color: #ffffff;
+  display: block;
+  font: normal bold 25px/1 "Roboto", sans-serif;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+  cursor: pointer;
+}
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

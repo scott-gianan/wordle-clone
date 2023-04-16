@@ -16,10 +16,3 @@ function SubmittedGuess({ submittedGuess, answer }) {
   );
 }
 export default SubmittedGuess;
-// checkSubmittedGuess.map((letter, index) => {
-//   return (
-//     <span className={`cell ${letter.status}`} key={index}>
-//       {letter.letter}
-//     </span>
-//   );
-// });

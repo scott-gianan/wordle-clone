@@ -1,8 +1,13 @@
+// reacc hooks
 import { useEffect, useState } from "react";
+//dependencies
+import toast from "react-simple-toasts";
+//components
 import KeyBoard from "../Keyboard/Keyboard";
+//css
 import "./GuessInput.css";
 
-function GuessInput({ submitGuess, enterTentativeGuess }) {
+function GuessInput({ submitGuess, enterTentativeGuess, guesses, answer }) {
   const [guess, setGuess] = useState("");
   //start of effect for keyboard event listener
   useEffect(() => {
@@ -28,7 +33,13 @@ function GuessInput({ submitGuess, enterTentativeGuess }) {
       } else if (key === "Backspace") {
         setGuess((prevGuess) => prevGuess.slice(0, prevGuess.length - 1));
       } else if (key === "Enter" && guess.length < 5) {
-        console.warn("not enough letters");
+        toast("Not Enough Letters", {
+          time: 1000,
+          position: "top-center",
+          clickable: true,
+          clickClosable: true,
+        });
+        return;
       }
     };
     //end of callback function for keydown event listener
@@ -47,7 +58,7 @@ function GuessInput({ submitGuess, enterTentativeGuess }) {
     const handleClick = (event) => {
       const clickedTile = event.target;
       const allowedTile =
-        clickedTile.className === "letter-key" || //letter keys are letters and backspace
+        clickedTile.className === "letter-key" || //letters and backspace
         clickedTile.className === "submit-key"; //submit key is enter
       //this if statement checks if the user clicked the allowed tile (letters, backspace and enter)
       if (allowedTile) {
@@ -63,7 +74,13 @@ function GuessInput({ submitGuess, enterTentativeGuess }) {
         } else if (clickedTile.textContent === "⬅") {
           setGuess((prevGuess) => prevGuess.slice(0, prevGuess.length - 1));
         } else {
-          if (clickedTile.textContent === "ENTER") {
+          if (clickedTile.textContent === "ENTER" && guess.length < 5) {
+            toast("Not Enough Letters", {
+              time: 1000,
+              position: "top-center",
+              clickable: true,
+              clickClosable: true,
+            });
             return;
           }
           setGuess((prevGuess) => prevGuess + clickedTile.textContent);
@@ -81,7 +98,7 @@ function GuessInput({ submitGuess, enterTentativeGuess }) {
   //end of effect for click event listener
   return (
     <>
-      <KeyBoard />
+      <KeyBoard guesses={guesses} answer={answer} />
     </>
   );
 }
