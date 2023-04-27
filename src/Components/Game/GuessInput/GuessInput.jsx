@@ -7,10 +7,17 @@ import KeyBoard from "../Keyboard/Keyboard";
 //css
 import "./GuessInput.css";
 
-function GuessInput({ submitGuess, enterTentativeGuess, guesses, answer }) {
+function GuessInput({
+  submitGuess,
+  enterTentativeGuess,
+  guesses,
+  answer,
+  turn,
+}) {
   const [guess, setGuess] = useState("");
   //start of effect for keyboard event listener
   useEffect(() => {
+    //console.log("keydown event");
     //start of callback function for keydown event listener
     const handleKeyDown = (event) => {
       const key = event.code; //KeyA, KeyB...etc.
@@ -57,11 +64,11 @@ function GuessInput({ submitGuess, enterTentativeGuess, guesses, answer }) {
     //start of callback function for window click event listener
     const handleClick = (event) => {
       const clickedTile = event.target;
-      const allowedTile =
-        clickedTile.className === "letter-key" || //letters and backspace
-        clickedTile.className === "submit-key"; //submit key is enter
+      const allowedTiles =
+        clickedTile.className.includes("letter-key") || //letters and backspace
+        clickedTile.className.includes("submit-key"); //submit key is enter
       //this if statement checks if the user clicked the allowed tile (letters, backspace and enter)
-      if (allowedTile) {
+      if (allowedTiles) {
         //will prevent the user to add another letter to the guess is already at 5 letters unless it's the backspace tile or the enter tile
         if (guess.length === 5) {
           if (clickedTile.textContent === "⬅") {
@@ -98,7 +105,7 @@ function GuessInput({ submitGuess, enterTentativeGuess, guesses, answer }) {
   //end of effect for click event listener
   return (
     <>
-      <KeyBoard guesses={guesses} answer={answer} />
+      <KeyBoard guesses={guesses} answer={answer} turn={turn} />
     </>
   );
 }

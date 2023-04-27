@@ -87,6 +87,7 @@ function Game() {
           enterTentativeGuess={handleEnterGuess}
           guesses={guesses}
           answer={answer}
+          turn={turn}
         />
       ) : (
         <ResetButton onClick={handleButtonClick} />
