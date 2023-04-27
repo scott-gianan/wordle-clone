@@ -23,6 +23,11 @@ function KeyBoard({ guesses, answer, turn }) {
           matchedKey.status === "incorrect"
         ) {
           matchedKey.status = "misplaced";
+        } else if (
+          key.status === "incorrect" &&
+          matchedKey.status === "correct"
+        ) {
+          matchedKey.status === "correct";
         }
       }
       return matchedKey ? matchedKey : key;
