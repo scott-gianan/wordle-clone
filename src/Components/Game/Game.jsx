@@ -33,7 +33,7 @@ function Game() {
         Click the reset button to try again!`,
         {
           time: 5000,
-          position: "bottom-center",
+          position: "top-center",
           clickable: true,
           clickClosable: true,
         }
@@ -45,7 +45,7 @@ function Game() {
     if (submittedGuess === answer) {
       toast(`Congratulations! you guessed the right word!`, {
         time: 5000,
-        position: "bottom-center",
+        position: "top-center",
         clickable: true,
         clickClosable: true,
       });
@@ -73,7 +73,9 @@ function Game() {
   }
   return (
     <>
-      {isGameWon && <Confetti />}
+      {isGameWon && (
+        <Confetti width={window.innerWidth} height={window.innerHeight} />
+      )}
       <GuessResults
         answer={answer}
         submittedGuess={guesses}

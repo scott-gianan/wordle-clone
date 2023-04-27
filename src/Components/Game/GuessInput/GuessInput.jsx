@@ -62,6 +62,7 @@ function GuessInput({
   useEffect(() => {
     //start of callback function for window click event listener
     const handleClick = (event) => {
+      event.preventDefault();
       const clickedTile = event.target;
       const allowedTiles =
         clickedTile.className.includes("letter-key") || //letters and backspace

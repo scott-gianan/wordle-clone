@@ -19,6 +19,9 @@ html {
 */
 body {
   font-family: sans-serif;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto 0 auto;
 }
 
 @media (max-height: 600px) {
