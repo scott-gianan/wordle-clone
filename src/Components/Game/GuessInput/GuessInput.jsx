@@ -1,4 +1,4 @@
-// reacc hooks
+// react hooks
 import { useEffect, useState } from "react";
 //dependencies
 import toast from "react-simple-toasts";
@@ -34,7 +34,6 @@ function GuessInput({
       }
       //this if statement will run if the entered key is a letter and backspace.
       //if the key entered is enter and the guess entered is less than 5, there will be a warning in the console.
-      //TODO: include a banner/alert for the user if the entered letters is less than 5
       if (key.includes("Key")) {
         setGuess((prevGuess) => prevGuess + letter);
       } else if (key === "Backspace") {
