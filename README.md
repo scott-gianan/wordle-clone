@@ -14,6 +14,38 @@
 
 ![Screenshot showing the green tile color](docs/examples.png)
 
-Image taken from the official wordle [site.](https://www.nytimes.com/games/wordle/index.html/)
+The image above is taken from the official wordle [site.](https://www.nytimes.com/games/wordle/index.html/)
 
 # Local Development
+
+### 1. To clone this repository, type in your terminal (or copy)
+
+```
+git clone https://github.com/scott-gianan/wordle-clone.git
+```
+
+### 2. Change to the wordle-clone directory
+
+```
+cd wordle-clone
+```
+
+### 3. Install the necessary dependencies
+
+```
+npm install
+```
+
+### 4. Run this repository locally
+
+```
+npm run dev
+```
+
+### 5. Head on to your browser address bar and type (or copy the link):
+
+```
+http://localhost:5173/
+```
+
+---
