@@ -41,13 +41,13 @@ The image above is taken from the official wordle [site.](https://www.nytimes.co
 4. Run this repository locally
 
    ```
-   npm run dev
+   npm run preview
    ```
 
 5. Head on to your browser address bar and type (or copy the link):
 
    ```
-   http://localhost:5173/
+   http://localhost:8080/
    ```
 
 ---
