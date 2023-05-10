@@ -19,6 +19,11 @@ function KeyBoard({ guesses, answer, turn }) {
         if (key.status === "correct" && matchedKey.status !== "correct") {
           matchedKey.status = "correct";
         } else if (
+          key.status === "correct" &&
+          matchedKey.status === "misplaced"
+        ) {
+          matchedKey.status = "correct";
+        } else if (
           key.status === "misplaced" &&
           matchedKey.status === "incorrect"
         ) {
